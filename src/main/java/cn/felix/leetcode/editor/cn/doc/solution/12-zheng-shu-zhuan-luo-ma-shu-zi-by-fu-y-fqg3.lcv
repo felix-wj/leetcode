@@ -1,0 +1,23 @@
+* java
+
+```java
+class Solution {
+    public String intToRoman(int num) {
+        //将所有的情况列举出来，包括特殊的情况
+        String[] str={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        int[] ref={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String res="";
+        while(num!=0){//当num 为0时，得到最终结果
+            for(int i=0;i<str.length;i++){
+                if(num>=ref[i]){//每次找符合条件的最大ref[i]
+                    res+=str[i];
+                    num-=ref[i];
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
