@@ -72,7 +72,7 @@
 package cn.felix.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution12 {
 	public String intToRoman(int num) {
 		char[] strChar = new char[15];
 		int strCharIdx = 0;
@@ -128,7 +128,7 @@ class Solution {
 	}
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution12 solution = new Solution12();
 		int max = 0 ;
 	    for (int i = 0; i < 4000; i++) {
 		    String s = solution.intToRoman(i);
