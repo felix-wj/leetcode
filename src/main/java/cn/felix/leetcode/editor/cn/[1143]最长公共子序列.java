@@ -58,17 +58,21 @@ class LongestCommonSubsequence {
 	//leetcode submit region begin(Prohibit modification and deletion)
 	class Solution {
 		public int longestCommonSubsequence(String text1, String text2) {
-			int[][] p = new int[text1.length()+1][text2.length()+1];
+			int[] dp1 = new int[text2.length()+1];
+			int[] dp2 = new int[text2.length()+1];
 			for (int i = 1; i <= text1.length(); i++) {
 				for (int j = 1; j <= text2.length(); j++) {
 					if (text2.charAt(j - 1) != text1.charAt(i - 1)) {
-						p[i][j] = Math.max(p[i - 1][j], p[i][j - 1]);
+						dp2[j] = Math.max(dp1[j], dp2[j - 1]);
 					} else {
-						p[i][j] = p[i - 1][j - 1] + 1;
+						dp2[j] = dp1[j - 1] + 1;
 					}
 				}
+				int[] temp = dp1;
+				dp1 = dp2;
+				dp2 = temp;
 			}
-			return p[text1.length()][text2.length()];
+			return dp1[text2.length()];
 		}
 	}
 //leetcode submit region end(Prohibit modification and deletion)
